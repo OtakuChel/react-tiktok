@@ -5,7 +5,16 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Header } from "../Header/Header";
 import { AppRoutes } from "./AppRoutes";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: Infinity,
+      refetchOnMount: false,
+      refetchOnReconnect: false,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const App = () => {
   return (
