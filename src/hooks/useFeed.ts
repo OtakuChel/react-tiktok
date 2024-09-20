@@ -9,11 +9,14 @@ import { REGION } from "../utils/constans";
 //   }
 
 const getFeed = async () => {
-  const pathData: string = `feed/list?region=${REGION}&count=20`
+  const pathData: string = `feed/list`;
   const response = await request({
     path: pathData,
     method: "GET",
-    body: "",
+    params: {
+      region: REGION,
+      count: 20,
+    },
   });
   return response;
 };
