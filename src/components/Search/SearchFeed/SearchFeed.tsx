@@ -1,10 +1,10 @@
 import React, { Fragment } from "react";
 import { useSearchParams } from "react-router-dom";
-import { useSearch } from "../../hooks/useSearch";
+import { useSearch } from "../../../hooks/useSearch";
 import InfiniteScroll from "react-infinite-scroll-component";
 
-import Spinner from "../Spinner/Spinner";
-import VideoItem from "../Videos/VideoItem";
+import Spinner from "../../Spinner/Spinner";
+import VideoItem from "../../Videos/VideoItem/VideoItem";
 
 const SearchFeed = () => {
   const [searchParams] = useSearchParams();
@@ -20,7 +20,7 @@ const SearchFeed = () => {
   }, [query]);
 
   const videoArray = data?.[0]?.data?.videos || [];
-  
+
   if (!videoArray.length) {
     return (
       <div className="error-message">

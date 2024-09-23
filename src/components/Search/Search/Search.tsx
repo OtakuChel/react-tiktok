@@ -3,6 +3,8 @@ import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
 import { useLocation, useMatch, useNavigate } from "react-router-dom";
 
+import styles from "./Search.module.scss";
+
 export const Search = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -28,17 +30,23 @@ export const Search = () => {
     navigate(`/search?q=${val}`);
   };
   return (
-    <form className="search" onSubmit={(event) => onChangeSubmit(event)}>
-      <div className="search-input flex">
-        <SearchIcon />
+    <form
+      className={styles.searchForm}
+      onSubmit={(event) => onChangeSubmit(event)}
+    >
+      <div className={styles.divSearch}>
         <input
+          className={styles.input}
           onChange={(event) => onChangeInput(event)}
           type="text"
           name="search"
           value={value}
           placeholder="Найти видео..."
         />
-        <button type="submit">Search</button>
+        <span></span>
+        <button type="submit">
+          <SearchIcon className={styles.icon} />
+        </button>
       </div>
     </form>
   );

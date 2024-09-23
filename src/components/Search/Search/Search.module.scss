@@ -1,0 +1,48 @@
+.searchForm {
+  margin-left: 300px;
+  max-width: 300px;
+  width: 100%;
+  .divSearch {
+    display: flex;
+    border-radius: 25px;
+    padding: 5px 10px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.12);
+
+    &:hover {
+      border: 0.5px solid rgba(255, 255, 255, 0.1);
+    }
+    .icon {
+      color: rgba(255, 255, 255, 0.566);
+    }
+    .input {
+      border: none;
+      outline: none;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      background-color: transparent;
+      color: rgba(255, 255, 255, 0.771);;
+    }
+
+    span {
+      width: 1px;
+      height: 38px;
+      margin: 0px 5px 0px;
+      background: rgba(255, 255, 255, 0.12);
+    }
+    button {
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      font-size: 0px;
+    }
+
+    // button:hover {
+    //   border: none;
+    //   outline: none;
+    //   background-color: rgba(255, 255, 255, 0.01);
+    // }
+  }
+}

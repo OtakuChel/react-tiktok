@@ -4,7 +4,9 @@ import { Link } from "react-router-dom";
 
 import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import PauseIcon from "@mui/icons-material/Pause";
-import Spinner from "../Spinner/Spinner";
+import Spinner from "../../Spinner/Spinner";
+
+import styles from "./Video.module.scss";
 
 type TVideo = {
   url: string;
@@ -43,24 +45,25 @@ const Video: React.FC<TVideo> = ({
   return (
     <div ref={videoRef} className={`video-item ${isPlaying ? "playing" : ""}`}>
       {!isReady && (
-        <div className="video-item__loading">
+        <div className={styles.loader}>
           <Spinner />
         </div>
       )}
-      <Link to={`video/${videoId}`}>
+      <Link to={`video/${videoId}`} className={styles.videoLink}>
         <ReactPlayer
+          className={styles.video}
           playing={isPlaying}
           loop={true}
           url={url}
-          width={width}
-          height={height}
+          width={"200px"}
+          height={"350px"}
           onProgress={handleProgress}
           onReady={() => setIsReady(true)}
         />
       </Link>
-      <div className="video-item__controls" onClick={handleClick}>
+      <div className={styles.pauseBlock} onClick={handleClick}>
         {isPlaying ? <PauseIcon /> : <PlayCircleIcon />}
-        <div className="video-progres">
+        <div className={styles.videoProgress}>
           <span style={{ width: `${progress}%` }}></span>
         </div>
       </div>

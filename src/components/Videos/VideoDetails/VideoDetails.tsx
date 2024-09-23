@@ -1,6 +1,6 @@
 import React from "react";
 
-import { formatCompactNum } from "../../utils/common";
+import { formatCompactNum } from "../../../utils/common";
 
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";

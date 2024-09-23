@@ -1,6 +1,6 @@
 import React from "react";
-import VideoUser from "./VideoUser";
-import Video from "./Video";
+import VideoUser from "../VideoUser/VideoUser";
+import Video from "../Video/Video";
 
 type TAuthor = {
   uniqueId: string;

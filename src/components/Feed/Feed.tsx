@@ -4,14 +4,18 @@ import { Link } from "react-router-dom";
 
 import { useFeed } from "../../hooks/useFeed";
 
-import VideoUser from "../Videos/VideoUser";
-import VideoDetails from "../Videos/VideoDetails";
+import VideoUser from "../Videos/VideoUser/VideoUser";
+import VideoDetails from "../Videos/VideoDetails/VideoDetails";
 import Spinner from "../Spinner/Spinner";
-import Video from "../Videos/Video";
+import Video from "../Videos/Video/Video";
 
+import videosArray from "../../utils/arrs.json";
 const Feed: React.FC = () => {
-  const { data: feed, isLoading }: any = useFeed();
-  console.log(feed.data, "feed");
+  // const { data: feed, isLoading }: any = useFeed();
+  // const { data: feed, isLoading }: any = videosArray;
+
+  console.log(videosArray, "videosArray");
+  // console.log(feed.data, "feed");
 
   // if (isLoading) {
   //   return <p>Загрузка...</p>;
@@ -39,7 +43,7 @@ const Feed: React.FC = () => {
                 avatar={avatar}
               />
               <div className="video-wrapper">
-                <Video url={play} videoId={videoId}/>
+                <Video url={play} videoId={videoId} />
                 <VideoDetails
                   playCount={playCount}
                   diggCount={diggCount}

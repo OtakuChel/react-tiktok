@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Feed from '../Feed/Feed'
-import SearchFeed from '../Search/SearchFeed'
+import SearchFeed from '../Search/SearchFeed/SearchFeed'
 
 export const AppRoutes = () => {
   return (
