@@ -6,13 +6,14 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Spinner from "../../Spinner/Spinner";
 import VideoItem from "../../Videos/VideoItem/VideoItem";
 
+import styles from "./SearchFeed.module.scss";
+
 const SearchFeed = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get("q");
 
   const { data, isFetching, setParams, fetchNextPage, hasNextPage } =
     useSearch();
-
   React.useEffect(() => {
     if (query) {
       setParams((__params) => ({ ...__params, keywords: query }));
@@ -29,7 +30,7 @@ const SearchFeed = () => {
     );
   }
   return (
-    <div className="search-container">
+    <div className={styles.searchСontainer}>
       <InfiniteScroll
         dataLength={videoArray.length}
         scrollThreshold={"600px"}
@@ -37,7 +38,7 @@ const SearchFeed = () => {
         next={fetchNextPage}
         loader={<Spinner />}
       >
-        <div className="search-feed">
+        <div className={styles.searchFeed}>
           {videoArray.map((video, index) => {
             return (
               <VideoItem
@@ -46,6 +47,7 @@ const SearchFeed = () => {
                 title={video.title}
                 play={video.play}
                 author={video.author}
+                songTitle={video.music_info.title}
               />
             );
           })}

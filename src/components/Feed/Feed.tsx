@@ -9,13 +9,19 @@ import VideoDetails from "../Videos/VideoDetails/VideoDetails";
 import Spinner from "../Spinner/Spinner";
 import Video from "../Videos/Video/Video";
 
+import styles from "./Feed.module.scss";
+
 import videosArray from "../../utils/arrs.json";
+
 const Feed: React.FC = () => {
   // const { data: feed, isLoading }: any = useFeed();
-  // const { data: feed, isLoading }: any = videosArray;
 
+  //test consts
+  const isLoading = false;
   console.log(videosArray, "videosArray");
-  // console.log(feed.data, "feed");
+  const feed = {
+    data: videosArray,
+  };
 
   // if (isLoading) {
   //   return <p>Загрузка...</p>;
@@ -35,28 +41,26 @@ const Feed: React.FC = () => {
           share_count: shareCount,
           author: { unique_id: uniqueId, avatar, nickname },
         }: any) => {
+          console.log(avatar);
           return (
-            <div className="video" key={videoId}>
-              <VideoUser
-                uniqueId={uniqueId}
-                nickname={nickname}
-                avatar={avatar}
-              />
-              <div className="video-wrapper">
-                <Video url={play} videoId={videoId} />
+            <div className={styles.video} key={videoId}>
+              <div className={styles.videoWrapper}>
+                <Video
+                  url={play}
+                  videoId={videoId}
+                  songTitle={songTitle}
+                  title={title}
+                />
                 <VideoDetails
                   playCount={playCount}
                   diggCount={diggCount}
                   commentCount={commentCount}
                   shareCount={shareCount}
+                  uniqueId={uniqueId}
+                  nickname={nickname}
+                  avatar={avatar}
                 />
               </div>
-              <div className="video-music">
-                <span>Original: </span>
-                <MusicNote />
-                <p className="video-music__title">{songTitle}</p>
-              </div>
-              <div className="video_title">{title}</div>
             </div>
           );
         }

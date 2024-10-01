@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import styles from './VideoUser.module.scss';
+import styles from "./VideoUser.module.scss";
 
 type TVideoUserProps = {
   uniqueId: string;
@@ -16,13 +16,11 @@ const VideoUser: React.FC<TVideoUserProps> = ({
 }) => {
   return (
     <Link to={`/user/${uniqueId}`} className={styles.authorBlock}>
-      <div
-        className={styles.authorImage}
-        style={{ backgroundImage: `url(${avatar})` }}
-      />
+      <div className={styles.circleBackground}>
+        <img src={avatar} />
+      </div>
       <div className={styles.authorName}>
-        <p>{nickname}</p>
-        {/* <span>{uniqueId}</span> */}
+        <p className={styles.nicknameText}>{nickname}</p>
       </div>
     </Link>
   );

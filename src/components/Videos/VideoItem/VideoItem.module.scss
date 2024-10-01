@@ -1,0 +1,14 @@
+.videoItem {
+  // width: 100%;
+  aspect-ratio: 9 / 16;
+  max-width: 250px;
+  height: auto;
+  border-radius: 28px;
+  overflow: hidden;
+}
+
+.videoItem video {
+  width: 100%; /* Видео занимает всю ширину блока */
+  height: 100%; /* Высота тоже занимает всю ширину блока */
+  object-fit: cover; /* Сохранение пропорций при заполнении */
+}

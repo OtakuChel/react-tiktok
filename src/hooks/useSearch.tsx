@@ -17,7 +17,7 @@ interface IFeedResponse {
   data: {
     hasMore: boolean;
     cursor: number;
-    videos: any[]
+    videos: any[];
     [key: string]: any; // другие необходимые поля
   };
 }
@@ -48,7 +48,6 @@ const getSearchFeedByKeywords = async ({
 
 // Хук для получения данных с пагинацией
 export const useSearch = () => {
-
   // Состояние для параметров поиска
   const [params, setParams] = React.useState<ISearchFeedParams>({
     keywords: "",
@@ -68,7 +67,7 @@ export const useSearch = () => {
       if (lastPage?.data?.hasMore) {
         return {
           ...params,
-          cursor: lastPage.data.cursor// + 20, // Увеличиваем курсор для следующей страницы
+          cursor: lastPage.data.cursor + 20, // + 20, // Увеличиваем курсор для следующей страницы
         };
       }
       return undefined; // Если больше страниц нет, возвращаем undefined

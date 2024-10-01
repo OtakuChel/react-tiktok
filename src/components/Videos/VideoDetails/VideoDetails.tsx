@@ -7,11 +7,17 @@ import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import ShareIcon from "@mui/icons-material/Share";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 
+import styles from "./VideoDetails.module.scss";
+import VideoUser from "../VideoUser/VideoUser";
+
 type TVideoDetailsProps = {
   playCount: string;
   diggCount: string;
   commentCount: string;
   shareCount: string;
+  uniqueId: string;
+  nickname: string;
+  avatar: string;
 };
 
 const VideoDetails: React.FC<TVideoDetailsProps> = ({
@@ -19,6 +25,9 @@ const VideoDetails: React.FC<TVideoDetailsProps> = ({
   diggCount,
   commentCount,
   shareCount,
+  uniqueId,
+  nickname,
+  avatar,
 }) => {
   const details = [
     {
@@ -39,10 +48,11 @@ const VideoDetails: React.FC<TVideoDetailsProps> = ({
     },
   ];
   return (
-    <ul className="video-details">
+    <ul className={styles.detailsList}>
+      <VideoUser uniqueId={uniqueId} nickname={nickname} avatar={avatar} />
       {details.map(({ icon, count }, i) => (
-        <li key={i} className="video-details__item">
-          {icon}
+        <li key={i} className={styles.videoDetails}>
+          <div className={styles.circleBackground}>{icon}</div>
           <p>{formatCompactNum(Number(count))}</p>
         </li>
       ))}
